@@ -9,7 +9,7 @@ The full fields are derived from the following formulas:
 
 
 A time domain radiation of one dipole is rendered. An image sequence shows the total power radiated
-![](./img/img_0.png)
+![](./img/img_1.png)
 
 ##Requirements
 * Julia 0.2 or +
