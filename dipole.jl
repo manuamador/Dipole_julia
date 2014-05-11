@@ -75,6 +75,7 @@ function Hertz_dipole_nf (r, p, R, phi, f, t=0, epsr=1.)
     return E,B
 	end
 
+#Main Program
 
 #observation points
 const  nx=401
@@ -94,7 +95,7 @@ const norm_p=sqrt(12*pi*c*Pow/(mu0*(2*pi*freq)^4))
 
 const  p=[0,0,norm_p]
 const  R=[0,0,0]
-  #dipole phases
+#dipole phase
 const  phases_dip=0
 
 const  nt=100
