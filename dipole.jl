@@ -99,15 +99,15 @@ function R_rand (N, a=1.)
     return xyz
 end
 
-function randEUT(N_dipole, radius, TPow, freq, epsr=1.0)
-	ps=p_rand(N_dipole)
-	pow=sum(sum(ps.^2,2),1)
-	w=2*pi*freq
-	corr_p=sqrt(TPow*12*pi*c^3*eps0*epsr./w.^4)
-	phis=2*pi*rand(N_dipole)
-	Rs=R_rand(N_dipole, a_EUT)
-	return ps, Rs, phis, corr_p
-end
+# function randEUT(N_dipole, radius, TPow, freq, epsr=1.0)
+# 	ps=p_rand(N_dipole)
+# 	pow=sum(sum(ps.^2,2),1)
+# 	w=2*pi*freq
+# 	corr_p=sqrt(TPow*12*pi*c^3*eps0*epsr./w.^4)
+# 	phis=2*pi*rand(N_dipole)
+# 	Rs=R_rand(N_dipole, a_EUT)
+# 	return ps, Rs, phis, corr_p
+# end
 
 
 #observation points
@@ -119,11 +119,14 @@ const  x=linspace(-xmax,xmax,nx)
 const  y=0
 const  z=linspace(-zmax,zmax,nz)
 
-  #dipole
-
+#dipole
 const  freq=1000e6
-  #dipole moment
-const  p=[0,0,1e-13]
+#dipole moment
+#total tim averaged radiated power P= 1 W dipole moment => |p|=sqrt(12πcP/µOω⁴)
+const Pow=1
+const norm_p=sqrt(12*pi*c*Pow/(mu0*(2*pi*freq)^4))
+
+const  p=[0,0,norm_p]
 const  R=[0,0,0]
   #dipole phases
 const  phases_dip=0
@@ -154,7 +157,7 @@ for k=1:nt
   print("$percent/100")  #Radiation diagram
   pcolor(x,z,P[:,:]',cmap="hot")
   fname = "img_$k.png"
-  clim(0,2)
+  clim(0,1000)
   axis("scaled")
   xlim(-xmax,xmax)
   ylim(-zmax,zmax)
