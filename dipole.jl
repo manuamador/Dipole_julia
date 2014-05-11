@@ -122,7 +122,7 @@ const  z=linspace(-zmax,zmax,nz)
 #dipole
 const  freq=1000e6
 #dipole moment
-#total tim averaged radiated power P= 1 W dipole moment => |p|=sqrt(12πcP/µOω⁴)
+#total time averaged radiated power P= 1 W dipole moment => |p|=sqrt(12πcP/µOω⁴)
 const Pow=1
 const norm_p=sqrt(12*pi*c*Pow/(mu0*(2*pi*freq)^4))
 
