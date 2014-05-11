@@ -75,29 +75,29 @@ function Hertz_dipole_nf (r, p, R, phi, f, t=0, epsr=1.)
     return E,B
 	end
 
-function p_rand (N, pmax=1.)
-    """
-    returns array of N random dipole moments (px,py,pz)
-    |p| <= pmax
-    """
-    r=pmax*rand(N)
-    phi=2*pi*rand(N)
-    th=acos(2*rand(N).-1)
-    xyz=([r.*sin(th).*cos(phi) r.*sin(th).*sin(phi) r.*cos(th)])
-    return xyz
-end
-
-function R_rand (N, a=1.)
-    """
-    returns array of N random vectors (Rx,Ry,Rz)
-    |R| = a
-    """
-    r=a*ones(N)
-    phi=2*pi*rand(N)
-    th=acos(2*rand(N).-1)
-    xyz=([r.*sin(th).*cos(phi) r.*sin(th).*sin(phi) r.*cos(th)])
-    return xyz
-end
+# function p_rand (N, pmax=1.)
+#     """
+#     returns array of N random dipole moments (px,py,pz)
+#     |p| <= pmax
+#     """
+#     r=pmax*rand(N)
+#     phi=2*pi*rand(N)
+#     th=acos(2*rand(N).-1)
+#     xyz=([r.*sin(th).*cos(phi) r.*sin(th).*sin(phi) r.*cos(th)])
+#     return xyz
+# end
+#
+# function R_rand (N, a=1.)
+#     """
+#     returns array of N random vectors (Rx,Ry,Rz)
+#     |R| = a
+#     """
+#     r=a*ones(N)
+#     phi=2*pi*rand(N)
+#     th=acos(2*rand(N).-1)
+#     xyz=([r.*sin(th).*cos(phi) r.*sin(th).*sin(phi) r.*cos(th)])
+#     return xyz
+# end
 
 # function randEUT(N_dipole, radius, TPow, freq, epsr=1.0)
 # 	ps=p_rand(N_dipole)
