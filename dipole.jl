@@ -98,7 +98,6 @@ const  R = [0,0,0]
 #dipole phase
 const  phases_dip = 0
 
-const  nt = 100
 const  t0 = 1/freq/10
 const  t1 = 5/freq
 const  nt = int(t1/t0)
